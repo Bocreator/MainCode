@@ -230,8 +230,8 @@ function MainTask()
                     .setDescription("List of commands for Quaver")
                     .addField("Music commands:", "`>play`, `>skip`, `>pause`, `>resume`, `>unpause`, `>loop`")
                     .addField("Non-music commands:", "`>help`, `>about`")
-                    .addField("\u200B", "[Learn more](https://youtube.com) • [Add to server](https://youtube.com) • [Source code](https://youtube.com)")
-
+                    .addField("\u200B", "[Learn more](https://quavermaster.github.io/Pages/) • [Add to server](https://discord.com/oauth2/authorize?client_id=900522521093357619&scope=bot&permissions=4348800064) • [Source code](https://github.com/QuaverMaster/MainCode)")
+                // Remember to change the "Add to Server" link to invite your own bot
                 return message.reply({ embeds: [embed] });
             }
 
@@ -245,8 +245,8 @@ function MainTask()
                     "to make the source code open-source so that others can also make their own discord bot with basic functions already included for a solid " + 
                     "start. Everyone is able to fork the code from the Github repository and either start their own bot or contribute. We pledge to make the " +
                     "source code free and open-source, forever.")
-                    .addField("\u200B", "[Learn more](https://youtube.com) • [Add to server](https://youtube.com) • [Source code](https://youtube.com)")
-
+                    .addField("\u200B", "[Learn more](https://quavermaster.github.io/Pages/) • [Add to server](https://discord.com/oauth2/authorize?client_id=900522521093357619&scope=bot&permissions=4348800064) • [Source code](https://github.com/QuaverMaster/MainCode)")
+                // Remember to change the "Add to Server" link to invite your own bot
                 return message.reply({ embeds: [embed] });
             }
         }
