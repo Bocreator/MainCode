@@ -41,3 +41,7 @@ Music commands:
 Non-music commands:
    * `>about` Shows information about the bot
    * `>help` Shows the list of functions of the bot
+
+## Files
+
+There are two index files included in this repository; The `index.js` file imports node packages using ES6 format; The `commonjs_index.js` file imports node packages using CommonJS format, as some hosting servers do not support importing ES6 modules. 
