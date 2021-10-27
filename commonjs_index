@@ -5,7 +5,7 @@ const ytdl = require("ytdl-core");
 
 const queue = new Map();
 
-const token = process.env.token;
+const token = "<insert_your_token_here>";
 const discClient = new Client({ 
     intents: [
         Intents.FLAGS.GUILDS, 
