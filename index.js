@@ -22,7 +22,7 @@ function MainTask()
     });
 
     discClient.on("messageCreate", async (message) => {
-        var prefix = ">";
+        var prefix = "!";
         var args = message.content.replace(/ +/g, " ").split(" ");
 
         var serverQueue = queue.get(message.guild.id); // Gets the server queue from the array of other server queues
@@ -47,7 +47,12 @@ function MainTask()
                     if(ytdl.validateURL(args[1]))
                     {
                         const songInfo = await ytdl.getInfo(args[1])
-                        song = { title: songInfo.videoDetails.title, url: songInfo.videoDetails.video_url };
+                        song = { title: songInfo.videoDetails.title, 
+                            url: songInfo.videoDetails.video_url, 
+                            duration: songInfo.videoDetails.lengthSeconds,
+                            views: songInfo.videoDetails.viewCount,
+                            likes: songInfo.videoDetails.likes,
+                            dislikes: songInfo.videoDetails.dislikes };
                     }
                     else
                     {
@@ -193,6 +198,7 @@ function MainTask()
             if(args[0].replace(prefix, "") === "loop")
             {
                 if(!voiceChannel) return message.reply("You need to be in a voice channel to use this command!");
+                if(queue.get(message.guild.id) === undefined) return message.reply("There are no songs currently playing!");
                 if(serverQueue)
                 {
                     if (serverQueue.voice_channel.id !== voiceChannel.id) return message.reply("You need to be in the same voice channel as the bot to execute this command!");
@@ -215,6 +221,7 @@ function MainTask()
             if(args[0].replace(prefix, "") === "skip")
             {
                 if(!voiceChannel) return message.reply("You need to be in a voice channel to use this command!");
+                if(queue.get(message.guild.id) === undefined) return message.reply("There are no songs currently playing!");
                 if(serverQueue)
                 {
                     if (serverQueue.voice_channel.id !== voiceChannel.id) return message.reply("You need to be in the same voice channel as the bot to execute this command!");
@@ -246,9 +253,9 @@ function MainTask()
                     .setTitle("Help")
                     .setDescription("List of commands for Quaver")
                     .addField("Music commands:", "`>play`, `>skip`, `>pause`, `>resume`, `>unpause`, `>loop`")
-                    .addField("Non-music commands:", "`>help`, `>about`, `>info`")
+                    .addField("Non-music commands:", "`>help`, `>about`, `info`")
                     .addField("\u200B", "[Learn more](https://quavermaster.github.io/Pages/) • [Add to server](https://discord.com/oauth2/authorize?client_id=900522521093357619&scope=bot&permissions=4348800064) • [Source code](https://github.com/QuaverMaster/MainCode)")
-                // Remember to change the "Add to Server" link to invite your own bot
+
                 return message.reply({ embeds: [embed] });
             }
 
@@ -263,12 +270,14 @@ function MainTask()
                     "start. Everyone is able to fork the code from the Github repository and either start their own bot or contribute. We pledge to make the " +
                     "source code free and open-source, forever.")
                     .addField("\u200B", "[Learn more](https://quavermaster.github.io/Pages/) • [Add to server](https://discord.com/oauth2/authorize?client_id=900522521093357619&scope=bot&permissions=4348800064) • [Source code](https://github.com/QuaverMaster/MainCode)")
-                // Remember to change the "Add to Server" link to invite your own bot
+
                 return message.reply({ embeds: [embed] });
             }
-            
+
             if(args[0].replace(prefix, "") === "info")
             {
+                if(queue.get(message.guild.id) === undefined) return message.reply("There are no songs currently playing!");
+
                 const videoLength = parseInt(queue.get(message.guild.id).songs[0].duration);
 
                 const embed = new MessageEmbed()
@@ -308,7 +317,6 @@ const VideoPlayer = async (guild, song) => {
             await songQueue.text_channel.send("Something went wrong. Please try again.");
         })
         
-        console.log(songQueue.looped);
         if(songQueue.looped)
         {
             songQueue.audioPlayer.on(AudioPlayerStatus.Idle, () => {
