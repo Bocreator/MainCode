@@ -193,6 +193,7 @@ function MainTask()
             if(args[0].replace(prefix, "") === "loop")
             {
                 if(!voiceChannel) return message.reply("You need to be in a voice channel to use this command!");
+                if(queue.get(message.guild.id) === undefined) return message.reply("There are no songs currently playing!");
                 if(serverQueue)
                 {
                     if (serverQueue.voice_channel.id !== voiceChannel.id) return message.reply("You need to be in the same voice channel as the bot to execute this command!");
@@ -215,6 +216,7 @@ function MainTask()
             if(args[0].replace(prefix, "") === "skip")
             {
                 if(!voiceChannel) return message.reply("You need to be in a voice channel to use this command!");
+                if(queue.get(message.guild.id) === undefined) return message.reply("There are no songs currently playing!");
                 if(serverQueue)
                 {
                     if (serverQueue.voice_channel.id !== voiceChannel.id) return message.reply("You need to be in the same voice channel as the bot to execute this command!");
