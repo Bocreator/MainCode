@@ -1,5 +1,6 @@
 const { Client, Intents, MessageEmbed } = require("discord.js");
 const { getVoiceConnection, getVoiceChannel, joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } = require("@discordjs/voice");
+const spdl = require("spdl-core");
 const yts = require("yt-search");
 const ytdl = require("ytdl-core");
 
