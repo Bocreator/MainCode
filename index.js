@@ -246,7 +246,7 @@ function MainTask()
                     .setTitle("Help")
                     .setDescription("List of commands for Quaver")
                     .addField("Music commands:", "`>play`, `>skip`, `>pause`, `>resume`, `>unpause`, `>loop`")
-                    .addField("Non-music commands:", "`>help`, `>about`")
+                    .addField("Non-music commands:", "`>help`, `>about`, `>info`")
                     .addField("\u200B", "[Learn more](https://quavermaster.github.io/Pages/) • [Add to server](https://discord.com/oauth2/authorize?client_id=900522521093357619&scope=bot&permissions=4348800064) • [Source code](https://github.com/QuaverMaster/MainCode)")
                 // Remember to change the "Add to Server" link to invite your own bot
                 return message.reply({ embeds: [embed] });
