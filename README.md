@@ -11,6 +11,7 @@ Quaver is a free and open-source discord music bot created by Discord user Unide
     * [`@discordjs/voice`](https://www.npmjs.com/package/@discordjs/voice)
     * [`yt-search`](https://www.npmjs.com/package/yt-search)
     * [`ytdl-core`](https://www.npmjs.com/package/ytdl-core)
+    * [`spdl-core`](https://www.npmjs.com/package/spdl-core)_
 
 **Note: Remeber to install the modules `sodium`/`tweetnacl`/`libsodium-wrappers` for the required encryption libraries, `@discordjs/opus`/`opusscript` for the required opus libraries and `ffmpeg-static` for the required FFmpeg.**
 
@@ -41,6 +42,7 @@ Music commands:
 Non-music commands:
    * `>about` Shows information about the bot
    * `>help` Shows the list of functions of the bot
+   * `>info` Gets information about the current song played
 
 ## Files
 
