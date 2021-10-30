@@ -55,10 +55,26 @@ function MainTask()
                             const videoResult = await yts(query);
                             return (videoResult.videos.length > 1) ? videoResult.videos[0] : null;
                         }
+                        
+                        var video;
 
-                        const video = await videoFinder(args.join(" ").replace(`${prefix}play`, ""))
+                        if(spdl.validateURL(args[1]))
+                        {
+                            const info = await spdl.getInfo(message.content.split(" ")[1]);
+                            video = await videoFinder(`${info.title} - ${info.artist}`);
+                        }
+                        else video = await videoFinder(args.join(" ").replace(`${prefix}play`, ""))
 
-                        if(video) song = { title: video.title, url: video.url };
+                        if(video)
+                        {
+                            const songInfo = await ytdl.getInfo(video.url);
+                            song = { title: songInfo.videoDetails.title, 
+                                url: songInfo.videoDetails.video_url, 
+                                duration: songInfo.videoDetails.lengthSeconds,
+                                views: songInfo.videoDetails.viewCount,
+                                likes: songInfo.videoDetails.likes,
+                                dislikes: songInfo.videoDetails.dislikes };
+                        }
                         else return message.reply("There was an error finding the video. Please try again.");
                     }
                 }
@@ -247,6 +263,24 @@ function MainTask()
                     "source code free and open-source, forever.")
                     .addField("\u200B", "[Learn more](https://quavermaster.github.io/Pages/) • [Add to server](https://discord.com/oauth2/authorize?client_id=900522521093357619&scope=bot&permissions=4348800064) • [Source code](https://github.com/QuaverMaster/MainCode)")
                 // Remember to change the "Add to Server" link to invite your own bot
+                return message.reply({ embeds: [embed] });
+            }
+            
+            if(args[0].replace(prefix, "") === "info")
+            {
+                const videoLength = parseInt(queue.get(message.guild.id).songs[0].duration);
+
+                const embed = new MessageEmbed()
+                    .setColor("#000E44")
+                    .setTitle("Song Info")
+                    .setDescription(`Info about **${queue.get(message.guild.id).songs[0].title}**`)
+                    .addField("Song Link", `[${queue.get(message.guild.id).songs[0].url}](${queue.get(message.guild.id).songs[0].url})`)
+                    .addFields(
+                        { name: "Views", value: `${queue.get(message.guild.id).songs[0].views}`, inline: true },
+                        { name: "Length", value: `${Math.trunc(videoLength / 60)}:${videoLength % 60}`, inline: true},
+                    )
+                    .setFooter(`${queue.get(message.guild.id).songs[0].likes} 👍 | ${queue.get(message.guild.id).songs[0].dislikes} 👎`)
+
                 return message.reply({ embeds: [embed] });
             }
         }
