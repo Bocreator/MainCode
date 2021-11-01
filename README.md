@@ -31,7 +31,7 @@ Quaver is currently being hosted ~~on [glitch](https://glitch.com/)~~ on my own 
 Quaver includes basic music commands, and more will be added along the way. 
 
 Music commands:
-   * `>play <url/song name>` Gets the song from YouTube 
+   * `>play <url/song name>` Gets the song from YouTube (Edit: Quaver now supports Spotify! Enter the Spotify url to play your desired song!)
    * `>skip` Skips the current song on the playlist; If there are no more songs on the playlist, the last song will be skipped and no more songs will be played; If loop is on, `>skip` will skip the current song and go on to the next song on the playlist and loop is turned off
    * `>stop`/`>disconnect` Disconnects the bot from the music channel. This will delete the playlist of the server
    * `>pause` Pauses the current song as well as the playlist
