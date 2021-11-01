@@ -24,7 +24,7 @@ As Quaver is still in its testing stages, there will be many instances where unh
 
 ## Hosting
 
-Quaver is currently being hosted on [glitch](https://glitch.com/). However, another alternative could be [Heroku](https://replit.com/). Currently, we are working on a Google Sheets Database using the [Google Sheets API](https://developers.google.com/sheets/api), though free alterntives such as [Supabase](https://supabase.io/) are being considered. You may also host on your own personal computer if you are just running the code for a small server and need not require it to operate 24/7.
+Quaver is currently being hosted ~~on [glitch](https://glitch.com/)~~ on my own personal computer. However, another alternative could be [Heroku](https://replit.com/). Currently, we are working on a Google Sheets Database using the [Google Sheets API](https://developers.google.com/sheets/api), though free alterntives such as [Supabase](https://supabase.io/) are being considered. You may also host on your own personal computer if you are just running the code for a small server and need not require it to operate 24/7.
 
 ## Bot commands
 
