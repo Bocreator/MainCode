@@ -35,7 +35,6 @@ function MainTask()
                 if(serverQueue)
                 {
                     if (serverQueue.voice_channel.id !== voiceChannel.id) return message.lineReply("You need to be in the same voice channel as the bot to execute this command!");
-                    // IMPORTANT: FIX THIS CODE NOT WORKING!!!
                 }
 
                 if(args.length >= 2)
@@ -133,7 +132,6 @@ function MainTask()
                 if(serverQueue)
                 {
                     if (serverQueue.voice_channel.id !== voiceChannel.id) return message.lineReply("You need to be in the same voice channel as the bot to execute this command!");
-                    // FIX THIS LINE
                 }
 
                 queue.get(message.guild.id).dispatcher.pause();
@@ -148,7 +146,6 @@ function MainTask()
                 if(serverQueue)
                 {
                     if (serverQueue.voice_channel.id !== voiceChannel.id) return message.lineReply("You need to be in the same voice channel as the bot to execute this command!");
-                    // FIX THIS LINE
                 }
 
                 queue.get(message.guild.id).dispatcher.resume();
@@ -199,7 +196,6 @@ function MainTask()
                 if(serverQueue)
                 {
                     if (serverQueue.voice_channel.id !== voiceChannel.id) return message.lineReply("You need to be in the same voice channel as the bot to execute this command!");
-                    // FIX THIS LINE
                 }
 
                 if(queue.get(message.guild.id).looped === false)
