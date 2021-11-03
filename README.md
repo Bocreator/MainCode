@@ -46,8 +46,8 @@ Non-music commands:
 
 ## Files
 
-There are two folders currently in the repository, `NodeJS v15` and `NodeJS v16`. In the `NodeJS v16` folder, there are two files: `commonjs_index.js` and `index.js`. `index.js` 
-imports modules via ES6 format, while `commonjs_index` imports modules via commonjs format. In the `NodeJS v15` folder, there is only `index.js` which imports modules via commonjs format. I won't be making an ES6 format because I'm kinda lazy but you can do it pretty easily.
+There are two folders currently in the repository, `NodeJS v14` and `NodeJS v16`. In the `NodeJS v16` folder, there are two files: `commonjs_index.js` and `index.js`. `index.js` 
+imports modules via ES6 format, while `commonjs_index` imports modules via commonjs format. In the `NodeJS v14` folder, there is only `index.js` which imports modules via commonjs format. I won't be making an ES6 format because I'm kinda lazy but you can do it pretty easily.
 
 ## Support
 
