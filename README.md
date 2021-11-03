@@ -5,7 +5,7 @@ Quaver is a free and open-source discord music bot created by Discord user Unide
 ## Executing the code
 
 1. Start by forking this repository
-2. Ensure that [node.js](https://nodejs.org/) is installed on your runtime environment. ~~Ensure that you have at least **node v16.6.0** installed. If not, update your node version~~ Choose which version of node to run: either v^16.6.0 for Discord.js 13 or v14.5.5 for Discord.js 12. **Important: I recommend you to use Discordjs 12 as ytdl-core funs more stably on v14.15.5.**
+2. Ensure that [node.js](https://nodejs.org/) is installed on your runtime environment. ~~Ensure that you have at least **node v16.6.0** installed. If not, update your node version~~ Choose which version of node to run: either v^16.6.0 for Discord.js 13 or v14.5.5 for Discord.js 12. **Important: I recommend you to use Discord.js 12 as ytdl-core runs more stably on v14.15.5.**
 3. Install modules by running `npm i` followed by:
     * [`discord.js`](https://discord.js.org/#/) ([guide](https://discordjs.guide/#before-you-begin))
     * [`@discordjs/voice`](https://www.npmjs.com/package/@discordjs/voice) (If you're running Discord.js 13)
