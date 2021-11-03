@@ -5,10 +5,10 @@ Quaver is a free and open-source discord music bot created by Discord user Unide
 ## Executing the code
 
 1. Start by forking this repository
-2. Ensure that [node.js](https://nodejs.org/) is installed on your runtime environment. Ensure that you have at least **node v16.6.0** installed. If not, update your node version.
+2. Ensure that [node.js](https://nodejs.org/) is installed on your runtime environment. ~~Ensure that you have at least **node v16.6.0** installed. If not, update your node version~~ Choose which version of node to run: either v^16.6.0 for Discord.js 13 or v14.5.5 for Discord.js 12. **Important: I recommend you to use Discordjs 12 as ytdl-core funs more stably on v14.15.5.**
 3. Install modules by running `npm i` followed by:
     * [`discord.js`](https://discord.js.org/#/) ([guide](https://discordjs.guide/#before-you-begin))
-    * [`@discordjs/voice`](https://www.npmjs.com/package/@discordjs/voice)
+    * [`@discordjs/voice`](https://www.npmjs.com/package/@discordjs/voice) (If you're running Discord.js 13)
     * [`yt-search`](https://www.npmjs.com/package/yt-search)
     * [`ytdl-core`](https://www.npmjs.com/package/ytdl-core)
     * [`spdl-core`](https://www.npmjs.com/package/spdl-core)
@@ -46,4 +46,9 @@ Non-music commands:
 
 ## Files
 
-There are two index files included in this repository; The `index.js` file imports node packages using ES6 format; The `commonjs_index.js` file imports node packages using CommonJS format, as some hosting servers do not support importing ES6 modules. 
+There are two folders currently in the repository, `NodeJS v15` and `NodeJS v16`. In the `NodeJS v16` folder, there are two files: `commonjs_index.js` and `index.js`. `index.js` 
+imports modules via ES6 format, while `commonjs_index` imports modules via commonjs format. In the `NodeJS v15` folder, there is only `index.js` which imports modules via commonjs format. I won't be making an ES6 format because I'm kinda lazy but you can do it pretty easily.
+
+## Support
+
+As the bot no longer runs on NodeJS v16, I will stop updating the files for it. However, if ytdl-core updates their libraries to run on Node v16 stably, I will immediately stop using Discord.js 12 and resume support for Discord.js 13.
