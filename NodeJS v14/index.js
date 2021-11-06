@@ -23,6 +23,8 @@ function MainTask()
 
         if(args[0].startsWith(prefix))
         {
+            if (message.author.bot) return;
+            
             console.log(args);
 
             const voiceChannel = message.member.voice.channel;
