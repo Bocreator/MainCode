@@ -14,6 +14,21 @@ function MainTask()
     client.on("ready", () => {
         console.log(`Logged in as ${client.user.tag}`);
     });
+    
+    client.on("voiceStateUpdate", (oldState, newState) => {
+        if(oldState.member.id === client.user.id)
+        {
+            if(newState.channelID === null) return queue.delete(newState.guild.id);
+        }
+        else
+        {
+            if(!queue.get(newState.guild.id)) return;
+            if(oldState.channelID === queue.get(newState.guild.id).voice_channel.id && oldState.channel.members.size === 1) return setTimeout(() => {
+                queue.get(newState.guild.id).connection.disconnect();
+                queue.delete(newState.guild.id);
+            }, 5000); 
+        }
+    })
 
     client.on("message", async (message) => {
         const prefix = ">";
@@ -99,6 +114,7 @@ function MainTask()
                     queueConstructor.songs.push(song);
 
                     try{
+                        if(!voiceChannel.joinable) return message.lineReply("I do not have permission to join the voice channel you're in!");
                         const connection = await voiceChannel.join();
 
                         queueConstructor.connection = connection;
